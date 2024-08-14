@@ -10,6 +10,14 @@ export default function CardDetails() {
     postalCode: '42424',
   })
 
+  const handleChange=(e)=>{
+    const { name, value } = e.target
+    setCard((prevCard) => ({
+      ...prevCard,
+      [name]: value,
+    }))
+  }
+
   return (
     <div className='py-4 max-w-sm mx-auto'>
       <fieldset>
@@ -74,6 +82,7 @@ export default function CardDetails() {
               className='px-2 relative block w-full rounded-none rounded-b-md border-0 bg-transparent py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
               placeholder=' ZIP / Posta kodu'
               defaultValue={card.postalCode}
+              onChange={handleChange}
             />
           </div>
         </div>
